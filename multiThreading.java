@@ -32,22 +32,42 @@
 
 
 
-class mythreads extends Thread{
-    public void run() {
-        for(int i=0;i<=10;i++){
-            System.out.println("child thread");
+// class mythreads extends Thread{
+//     public void run() {
+//         for(int i=0;i<=10;i++){
+//             System.out.println("child thread");
+//         }
+//     }
+// }
+// class multiThreading{
+// public static void main(String[] args)
+// {
+//     mythreads m =new mythreads();
+//     m.setPriority(10);
+//     m.start();
+//     for(int i=0;i<=10;i++){
+//     System.out.println("main thread");
+//     }
+// }}
+
+
+class mythreads extends mythreads{
+    public void run(){
+        for(int i=0;i<10;i++){
+            Thread.yield();
+            System.out.println("child Thread")
+            
         }
     }
 }
 
-
 class multiThreading{
-public static void main(String[] args)
-{
-    mythreads m =new mythreads();
-    m.setPriority(10);
-    m.start();
-    for(int i=0;i<=10;i++){
-    System.out.println("main thread");
+    public static void main(String [] args){
+        mythreads m = new mythreads();
+        m.start();
+        for(int i=0;i<10;i++){
+            System.out.println("Main Thread");
+        }
+
     }
-}}
+}
