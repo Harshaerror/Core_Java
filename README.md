@@ -1,1 +1,2 @@
-# Basic-c++
+# Core Java
+# DurgaSoft SCJP Notes
