@@ -51,16 +51,16 @@
 // }}
 
 
-class mythreads extends mythreads{
+
+class mythreads extends Thread{
     public void run(){
         for(int i=0;i<10;i++){
             Thread.yield();
-            System.out.println("child Thread")
+            System.out.println("child Thread");
             
         }
     }
 }
-
 class multiThreading{
     public static void main(String [] args){
         mythreads m = new mythreads();
