@@ -103,6 +103,52 @@
 // lowesr's using static variable and currentThread() call
 
 
+
+
+// class mythread extends Thread {
+//    static Thread mt;
+// public void run(){
+//         for(int i=0;i<10;i++){
+//         System.out.println("Ramam");
+        
+//         try{
+//             mt.join(2000);/*to wait for the main thread 
+//             by calling the direct mt(i.e instance of multiThreading)
+//             in mythread(),multiThreading()
+//             is saying that 
+//             you have to wait for me,
+//             mythread() will wait until ( (2000) )
+//             after that it will compile
+//             with or without multiThreading()*/
+//         }
+//         catch(InterruptedException e){
+//                                }
+//         }
+//     }
+// }
+// class multiThreading {
+//     public static void main(String [] args) throws InterruptedException{
+//     mythread.mt = Thread.currentThread();//pointed to main() thread i.e currentthread 
+//     //so that we can call in child thread to join 
+//    mythread s = new mythread();     
+//      s.start();
+//     for(int i=0;i<10;i++){
+//         System.out.println("Raghvamm");
+//         Thread.sleep(200);
+//         //each time loop enters pause ((200)) each time 
+//      }
+//     }
+// }
+
+
+
+
+
+
+
+
+/*This Program result in Deadlock Situation where 
+those are waiting for each other and stucked at a one point*/
 class mythread extends Thread {
    static Thread mt;
 public void run(){
@@ -110,7 +156,8 @@ public void run(){
         System.out.println("Ramam");
         
         try{
-            mt.join(2000);
+            mt.join();
+            //wait for multiThreading() object 
         }
         catch(InterruptedException e){
                                }
@@ -120,9 +167,10 @@ public void run(){
 class multiThreading {
     public static void main(String [] args) throws InterruptedException{
     mythread.mt = Thread.currentThread();
-
-    mythread s = new mythread();     
+   mythread s = new mythread();     
      s.start();
+     s.join();
+     //wait for mythread() object
     for(int i=0;i<10;i++){
         System.out.println("Raghvamm");
         Thread.sleep(200);
