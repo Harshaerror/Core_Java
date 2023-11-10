@@ -188,7 +188,57 @@ those are waiting for each other and stucked at a one point*/
 //When thread it self for join() then it will be under Deadlock state
 
 
-class multiThreading{
-public static void main(String[] args) throws InterruptedException{
-Thread.currentThread().join();    
-}}
+// class multiThreading{
+// public static void main(String[] args) throws InterruptedException{
+// Thread.currentThread().join();    
+// }}
+
+
+
+
+
+// class multiThreading extends Thread{
+//     public static void main(String[] args) throws InterruptedException{
+//         for (int i = 0; i<10;i++)
+// {
+//     System.out.println("Slide "+i);
+//     Thread.sleep(2000);
+// }    
+// }
+// }
+
+
+
+
+
+
+//intrerrupted();
+// class mythread extends Thread{
+//     public void run(){
+//         try{
+//             for(int i =0;i<10;i++){
+//                 System.out.println("lazy thread");
+//                 Thread.sleep(5000);
+//             }
+//         }
+//         catch(InterruptedException e){
+//             System.out.println("mythread interrupted");
+//         }
+//     }
+// }
+// class multiThreading{
+//     public static void main(String[] args) {
+//  mythread m =new mythread();
+//  m.start();
+//  m.interrupt();
+//  System.out.println("main thread");
+//     }
+// }
+
+
+
+
+
+
+
+
