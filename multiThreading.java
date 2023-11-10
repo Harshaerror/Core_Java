@@ -149,31 +149,46 @@
 
 /*This Program result in Deadlock Situation where 
 those are waiting for each other and stucked at a one point*/
-class mythread extends Thread {
-   static Thread mt;
-public void run(){
-        for(int i=0;i<10;i++){
-        System.out.println("Ramam");
+// class mythread extends Thread {
+//    static Thread mt;
+// public void run(){
+//         for(int i=0;i<10;i++){
+//         System.out.println("Ramam");
         
-        try{
-            mt.join();
-            //wait for multiThreading() object 
-        }
-        catch(InterruptedException e){
-                               }
-        }
-    }
-}
-class multiThreading {
-    public static void main(String [] args) throws InterruptedException{
-    mythread.mt = Thread.currentThread();
-   mythread s = new mythread();     
-     s.start();
-     s.join();
-     //wait for mythread() object
-    for(int i=0;i<10;i++){
-        System.out.println("Raghvamm");
-        Thread.sleep(200);
-     }
-    }
-}
+//         try{
+//             mt.join();
+//             //wait for multiThreading() object 
+//         }
+//         catch(InterruptedException e){
+//                                }
+//         }
+//     }
+// }
+// class multiThreading {
+//     public static void main(String [] args) throws InterruptedException{
+//     mythread.mt = Thread.currentThread();
+//    mythread s = new mythread();     
+//      s.start();
+//      s.join();
+//      //wait for mythread() object
+//     for(int i=0;i<10;i++){
+//         System.out.println("Raghvamm");
+//         Thread.sleep(200);
+//      }
+//     }
+// }
+
+
+
+
+
+
+
+
+//When thread it self for join() then it will be under Deadlock state
+
+
+class multiThreading{
+public static void main(String[] args) throws InterruptedException{
+Thread.currentThread().join();    
+}}
