@@ -236,9 +236,49 @@ those are waiting for each other and stucked at a one point*/
 // }
 
 
+/*
+synchronized --> if manipulation of one object by multiple thread
+happen that time we should go for synchronized 
 
+using synchronized keyword --> one by one complition of thread 
+example-->
+books the tickets if available
+ */
+class display{
+    public synchronized void wish(String name){
+        for(int n=0;n<10;n++){
+              System.out.print("good moning: ");
+    //   try{
+    //     Thread.sleep(1000);
+    //  }
+    //  catch(InterruptedException e){}
+        System.out.println(name);
+        }
+    }
+}
 
+class childthread extends Thread{
+    display d;
+    String name;
+    childthread(display d,String name){
+        this.name = name;
+        this.d = d;
+    }
+    public void run(){
+        d.wish(name);
+    }
+}
 
-
-
-
+class multiThreading{
+    public static void main(String [] args){
+display d = new display();
+childthread t = new childthread(d,"dhoni");
+childthread t1 = new childthread(d,"virat");
+childthread t2 = new childthread(d,"hardik");
+childthread t3 = new childthread(d,"jadeja");
+t.start();
+t1.start();
+t2.start();
+t3.start();
+}
+}
