@@ -244,41 +244,96 @@ using synchronized keyword --> one by one complition of thread
 example-->
 books the tickets if available
  */
+// class display{
+//     public synchronized void wish(String name){
+//         for(int n=0;n<10;n++){
+//               System.out.print("good moning: ");
+//     //   try{
+//     //     Thread.sleep(1000);
+//     //  }
+//     //  catch(InterruptedException e){}
+//         System.out.println(name);
+//         }
+//     }
+// }
+
+// class childthread extends Thread{
+//     display d;
+//     String name;
+//     childthread(display d,String name){
+//         this.name = name;
+//         this.d = d;
+//     }
+//     public void run(){
+//         d.wish(name);
+//     }
+// }
+
+// class multiThreading{
+//     public static void main(String [] args){
+// display d = new display();
+// childthread t = new childthread(d,"dhoni");
+// childthread t1 = new childthread(d,"virat");
+// childthread t2 = new childthread(d,"hardik");
+// childthread t3 = new childthread(d,"jadeja");
+// t.start();
+// t1.start();
+// t2.start();
+// t3.start();
+// }
+// }
+
+
+
+
+
+
 class display{
-    public synchronized void wish(String name){
-        for(int n=0;n<10;n++){
-              System.out.print("good moning: ");
-    //   try{
-    //     Thread.sleep(1000);
-    //  }
-    //  catch(InterruptedException e){}
-        System.out.println(name);
+ public  synchronized void  displayn(){
+        for(int i=1;i<=10;i++){
+            System.out.print(i);
+            try{
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException e){}
+        }
+        System.out.println();
+    }
+    public synchronized void  displays(){
+        for(int i=65;i<75;i++){
+            System.out.print((char)i);
+            try{
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException e){}
         }
     }
 }
-
-class childthread extends Thread{
+class childthread1 extends Thread{
     display d;
-    String name;
-    childthread(display d,String name){
-        this.name = name;
-        this.d = d;
-    }
-    public void run(){
-        d.wish(name);
-    }
+    childthread1(display d){
+        this.d=d;
+}
+public void run(){
+d.displayn();
+}
+}
+class childthread2 extends Thread{
+    display d;
+    childthread2(display d){
+        this.d=d;
+}
+public void run(){
+d.displays();
+}
 }
 
 class multiThreading{
-    public static void main(String [] args){
-display d = new display();
-childthread t = new childthread(d,"dhoni");
-childthread t1 = new childthread(d,"virat");
-childthread t2 = new childthread(d,"hardik");
-childthread t3 = new childthread(d,"jadeja");
-t.start();
-t1.start();
-t2.start();
-t3.start();
-}
-}
+    public static void main(String[] args){
+        display d = new display();
+        childthread1 c = new childthread1(d);
+        childthread2 c1 = new childthread2(d);
+            c.start();
+            c1.start();
+    }
+} 
