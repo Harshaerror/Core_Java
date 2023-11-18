@@ -342,31 +342,29 @@ books the tickets if available
 
 class display{
     public void wish(String name){
-        
+         ;;;;;;//to many lines of code
       synchronized(this){
-        ;;;;;;//to many lines of code
-        for(int i=0;i<6;i++){
+            for(int i=0;i<6;i++){
         System.out.println("jay shri ram: ");
         try{
             Thread.sleep(1000);
         }
-        catch(InterruptedException e){}
+       catch(InterruptedException e){}
+       System.out.println(name);
          }
-        ;;;;;;;//to many lines of code
         }
+         ;;;;;;;//to many lines of code
     }
-}
-
-
+   }
 class mythread11 extends Thread{
     display d;
-    String s;
-    mythread11(display d, String s){
+    String name;
+    mythread11(display d, String name){
         this.d = d;
-        this.s = s;
+        this.name = name;
     }
     public void run(){
-        d.wish(s);
+        d.wish(name);
     }
 }
 
