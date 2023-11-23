@@ -72,17 +72,45 @@
 
 
 
-class exceptionHandle{
-    public static void main(String[] args) throws InterruptedException
-        {
-            dostuff();
+// class exceptionHandle{
+//     public static void main(String[] args) throws InterruptedException
+//         {
+//             dostuff();
+//         }
+//        public static void dostuff() throws InterruptedException{
+//         domorestuff();
+//     }
+//     public static void domorestuff() throws InterruptedException{
+//         Thread.sleep(10000);
+// }
+//     }
+
+
+class myThread extends Thread {
+int total = 0;
+public void run(){
+    synchronise(this){
+        System..out.println("Child thread starts calculation ");
+        for(int i=0;i<100;i++){
+            total = total + 1;
+        System.out.println("child thread giving notification");
+        this.notify();
         }
-       public static void dostuff() throws InterruptedException{
-        domorestuff();
-    }
-    public static void domorestuff() throws InterruptedException{
-        Thread.sleep(10000);
+  }
+ }
+} 
+
+class exceptionHandling{
+public static void main(String args[]) throws Exception{
+    myThread b = new myThread();
+    b.start();
+    synchronised(b){
+        System.out.println("Main thread calling wait method");
+        b.wait();
+        System.out.println("main thread got notification");
+        System.out.println(b.total);
+    }     
+  }
 }
-    }
     
 
